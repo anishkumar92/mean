@@ -35,22 +35,13 @@ app.post("/api/posts",(req,res,next)=>{
     })
 })
 app.get("/api/posts",(req,res)=>{
-const posts=[
-    {
-        id:"dsada",
-        title:"fist title",
-        content:"content"
-    },
-    {
-        id:"dsfsaada",
-        title:"second title",
-        content:"more content"
-    }
-];
+ Post.find()
+ .then(documents =>{
+    res.status(200).json({
+        message:"post fetched",
+        posts:documents
+ });
 
-res.status(200).json({
-    message:"post fetched",
-    posts:posts
 });
 
 });
